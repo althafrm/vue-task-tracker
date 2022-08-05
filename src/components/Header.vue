@@ -8,15 +8,24 @@ export default {
         title: String,
         showAddTask: Boolean,
     },
-    components: {
-        Button,
-    },
     // props: {
     //     title: {
     //         type: String,
     //         default: "Hello Vue",
     //     },
     // },
+    components: {
+        Button,
+    },
+    computed: {
+        isHomepage() {
+            if (this.$route.path === "/") {
+                return true;
+            }
+
+            return false;
+        },
+    },
 };
 </script>
 
@@ -24,6 +33,7 @@ export default {
     <header>
         <h1>{{ title }}</h1>
         <Button
+            v-show="isHomepage"
             :text="showAddTask ? 'Close' : 'Add Task'"
             :color="showAddTask ? 'red' : 'green'"
             @btn-click="$emit('toggle-add-task')"

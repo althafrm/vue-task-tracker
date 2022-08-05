@@ -5,18 +5,10 @@ export default {
         text: String,
         color: String,
     },
-    methods: {
-        onClick() {
-            console.log("click");
-        },
-    },
 };
 </script>
 
 <template>
-    <!-- <button @click="onClick()" class="btn" :style="{ background: color }">
-        {{ text }}
-    </button> -->
     <button
         class="btn"
         :style="{ background: color }"
